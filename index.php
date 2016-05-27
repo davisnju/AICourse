@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if($_SESSION['isLogged']!=1){
+if(!$_SESSION['isLogged']){
 	$_SESSION['isLogged']=0;	
 	}
 	//echo "session_logged:".$_SESSION['isLogged'];
@@ -53,6 +53,10 @@ if($_SESSION['isLogged']!=1){
 	<section id="content">
 		<div id="container">
 			<div id="cwrap">
+				
+				<div id="cinfo">
+					AICourse致力于智能远程教育。(网站介绍)
+				</div>
 				<div id="catalog">
 					<ul>
 						<li><a href="../AICourse/ComputerScience.php">计算机科学</a></li>
@@ -62,9 +66,6 @@ if($_SESSION['isLogged']!=1){
 						<li><a href="">个人发展</a></li>
 						<li><a href="">艺术与人文</a></li>
 					</ul>
-				</div>
-				<div id="cinfo">
-					AICourse致力于智能远程教育。(网站介绍)
 				</div>
 			</div>
 		</div>

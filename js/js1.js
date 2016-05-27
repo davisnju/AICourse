@@ -25,39 +25,62 @@ if (document.documentElement && document.documentElement.clientHeight && documen
 	winWidth = document.documentElement.clientWidth; 
 } 
 //$$('textSearch').value = winWidth;
-if(winWidth < 900 && winWidth >= 696)
+if(winWidth < 900 && winWidth >= 722)
 {
 	$$('wrap').style.setProperty('width','100%');
 	$$('fwrap').style.setProperty('width','100%');
-	$$('course-cwrap').style.setProperty('width','100%');
+	if($$('course-cwrap'))$$('course-cwrap').style.setProperty('width','100%');
 	$$('index_search').style.setProperty('margin-left','10%');
 	$$('btnBrowse').style.setProperty('float','left');
 	$$('textSearch').style.setProperty('float','left');
 	$$('index_search').style.setProperty('width','300px');
 	$$('textSearch').style.display = 'block';
 	$$('btnSearch').style.display = 'block';
+	if($$('cinfo')){
+		var w = $$('login_signin').offsetLeft - $$('cinfo').offsetLeft;
+		if(w < 400 && w > 120)
+			$$('cinfo').style.setProperty('width', w + 'px');
+	}
 }
-else if(winWidth < 696)
+else if(winWidth < 722)
 {
 	$$('wrap').style.setProperty('width','100%');
 	$$('fwrap').style.setProperty('width','100%');
-	$$('course-cwrap').style.setProperty('width','100%');
+	if($$('course-cwrap'))$$('course-cwrap').style.setProperty('width','100%');
 	$$('textSearch').style.display = 'none';
 	$$('btnSearch').style.display = 'none';
 	$$('index_search').style.setProperty('width','40px');
+	if($$('cinfo')){
+		var w = $$('login_signin').offsetLeft - $$('cinfo').offsetLeft;
+		if(w < 400 && w > 120)
+			$$('cinfo').style.setProperty('width', w + 'px');
+	}
 }
 else if(winWidth >= 900){
 	$$('wrap').style.setProperty('width','900px');
 	$$('fwrap').style.setProperty('width','900px');
-	$$('course-cwrap').style.setProperty('width','900px');
+	if($$('course-cwrap'))$$('course-cwrap').style.setProperty('width','900px');
 	$$('index_search').style.setProperty('margin-left','10%');
 	$$('btnBrowse').style.setProperty('float','left');
 	$$('textSearch').style.setProperty('float','left');
 	$$('index_search').style.setProperty('width','300px');
 	$$('textSearch').style.display = 'block';
 	$$('btnSearch').style.display = 'block';
+	if($$('cinfo'))$$('cinfo').style.setProperty('width','400px');
 }
-	$$('course-cwrap').style.setProperty('left',$$('wrap').offsetLeft+'px');
+	if($$('ctop') && $$('ctop-content'))
+	{
+		var h = $$('ctop-content').getElementsByTagName('p').offsetTop + $$('ctop-content').getElementsByTagName('p').offsetHeight;
+		if(h > 200)$$('ctop').style.setProperty('height', h + 'px');
+		else{$$('ctop').style.setProperty('height', '200px');}
+	}
+
+	if($$('course-cwrap'))$$('course-cwrap').style.setProperty('left',$$('logo').offsetLeft + 'px');
+	//alert(1);
+	
+	$$('finfo').style.setProperty('left',$$('logo').offsetLeft + 'px');
+	var d=$$('ctop-content');
+	//alert(d.getElementsByTagName('p')[0]);
 } 
 // 调用函数，获取数值 
 window.onload = findDimensions; 
